@@ -22,7 +22,7 @@ namespace CalculateOnlineJudge.DataBaseAccessFactory_DAL
         #endregion
         #region JudgeInfo
         void UpdateJudgeInfo(JudgeInfo judgeInfo, int userID);
-        UserInfo GetJudgeInfo(int userID);
+        JudgeInfo GetJudgeInfo(int userID);
         #endregion
     }
 }

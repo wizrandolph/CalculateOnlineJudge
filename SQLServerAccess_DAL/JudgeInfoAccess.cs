@@ -12,7 +12,6 @@ namespace CalculateOnlineJudge.SQLServerAccess_DAL
     {
         public JudgeInfo GetJudgeInfo(int userID)
         {
-
             JudgeInfo userInformation = null;
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -24,7 +23,7 @@ namespace CalculateOnlineJudge.SQLServerAccess_DAL
                             errorNum, 
                             latestTime
                         FROM  
-                            dbojudgeinformation_table 
+                            dbo.judgeinformation_table 
                         WHERE 
                             userID = {0}
                         ",
@@ -54,7 +53,7 @@ namespace CalculateOnlineJudge.SQLServerAccess_DAL
                             dbo.judgeinformation_table 
                         SET 
                             totalNum = {0} 
-                            errorNum = N'{1}'
+                            errorNum = {1}
                             latestTime = N'{2}'
                         WHERE 
                             userid = {3}

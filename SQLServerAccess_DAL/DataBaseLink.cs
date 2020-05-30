@@ -11,11 +11,11 @@ namespace CalculateOnlineJudge.SQLServerAccess_DAL
     {
         private static readonly string ConnectionString =
             @"
-                Data Source=172_27_0_17;
-                Initial Catalog = WebServerDataBase; 
-                User ID = sa; 
-                Password=1236zccg99326SA;
-                Connect Timeout = 30; 
+                Data Source=132.232.36.194;
+                Initial Catalog=CalculateOnlineJudge_DB;
+                User ID=sa;
+                Password=1236ZCCG99326SA;
+                Connect Timeout=30;
                 Encrypt=False;
                 TrustServerCertificate=False;
                 ApplicationIntent=ReadWrite;
