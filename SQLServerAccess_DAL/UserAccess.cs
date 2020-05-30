@@ -50,18 +50,10 @@ namespace CalculateOnlineJudge.SQLServerAccess_DAL
                 SqlCommand cmd = new SqlCommand(
                 string.Format(
                     @"            
-                    DELETE FROM
-                        dbo.user_table
-                    WHERE
-                        userid = {0}
-                    DELETE FROM
-                        dbo.userinfo_table
-                    WHERE
-                        userid = {0}
-                    DELETE FROM
-                        dbo.judgeinfo_table
-                    WHERE
-                        userid = {0}
+                    DECLARE @responseMessage bit
+                    EXEC dbo.DeleteUser
+                        @userID = N'{0}',
+                        @responseMessage = @responseMessage OUTPUT
                     "
                     , userID),
                     connection
