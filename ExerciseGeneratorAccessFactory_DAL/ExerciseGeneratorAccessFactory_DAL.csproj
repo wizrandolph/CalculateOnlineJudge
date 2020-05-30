@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ED2A6C32-2630-4B79-81B0-307A60487E85}</ProjectGuid>
+    <ProjectGuid>{909218F1-F10E-4651-A495-77AE842761EC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CalculateOnlineJudge.Entity</RootNamespace>
-    <AssemblyName>CalculateOnlineJudge.Entity</AssemblyName>
+    <RootNamespace>CalculateOnlineJudge.ExerciseGeneratorAccessFactory_DAL</RootNamespace>
+    <AssemblyName>CalculateOnlineJudge.ExerciseGeneratorAccessFactory_DAL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,12 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DifficultyEnum.cs" />
-    <Compile Include="ExercisesDefinitions.cs" />
-    <Compile Include="JudgeInfo.cs" />
+    <Compile Include="ExerciseGeneratorFactory.cs" />
+    <Compile Include="IExerciseGeneratorAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{ed2a6c32-2630-4b79-81b0-307a60487e85}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

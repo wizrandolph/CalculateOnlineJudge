@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseAccessFactory_DAL",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLServerAccess_DAL", "SQLServerAccess_DAL\SQLServerAccess_DAL.csproj", "{FCA6A878-E631-42B4-9837-72A9D976599C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciseGeneratorAccessFactory_DAL", "ExerciseGeneratorAccessFactory_DAL\ExerciseGeneratorAccessFactory_DAL.csproj", "{909218F1-F10E-4651-A495-77AE842761EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBaseAccess_DAL", "DataBaseAccess_DAL", "{09247857-CCDF-4EC4-95C4-4F9434B5BC3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExerciseGeneratorAccess_DAL", "ExerciseGeneratorAccess_DAL", "{32906A5E-733E-426F-8D4D-82B5001FEAB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +33,18 @@ Global
 		{FCA6A878-E631-42B4-9837-72A9D976599C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCA6A878-E631-42B4-9837-72A9D976599C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCA6A878-E631-42B4-9837-72A9D976599C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{909218F1-F10E-4651-A495-77AE842761EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{909218F1-F10E-4651-A495-77AE842761EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{909218F1-F10E-4651-A495-77AE842761EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{909218F1-F10E-4651-A495-77AE842761EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E6D12DBA-27E7-437F-B579-80DF91BE2EC0} = {09247857-CCDF-4EC4-95C4-4F9434B5BC3C}
+		{FCA6A878-E631-42B4-9837-72A9D976599C} = {09247857-CCDF-4EC4-95C4-4F9434B5BC3C}
+		{909218F1-F10E-4651-A495-77AE842761EC} = {32906A5E-733E-426F-8D4D-82B5001FEAB1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {488E229A-5177-42DA-8733-BAFB6E2E08D3}
