@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace CalculateOnlineJudge.Entity
 {
-    public enum ResultIntervalType
+    public enum IntervalType
     {
         LE10,
-        LE100,
-        LE1000
+        LE20,
+        LE50,
+        LE100
     }
     public enum OperationType
     {
@@ -19,7 +20,6 @@ namespace CalculateOnlineJudge.Entity
         Mul = 4,
         Div = 8,
         DivWithRemainder = 16,
-        Mix = 32
     }
     public enum QuantityType
     {

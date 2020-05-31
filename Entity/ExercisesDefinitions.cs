@@ -8,18 +8,18 @@ namespace CalculateOnlineJudge.Entity
 {
     public class ExerciseOption
     {
-        private ResultIntervalType resultIntervalType;
+        private IntervalType resultIntervalType;
         private OperationType operationType;
         private QuantityType quantityType;
 
-        public ExerciseOption(ResultIntervalType resultIntervalType, OperationType operationType, QuantityType quantityType)
+        public ExerciseOption(IntervalType resultIntervalType, OperationType operationType, QuantityType quantityType)
         {
             this.resultIntervalType = resultIntervalType;
             this.operationType = operationType;
             this.quantityType = quantityType;
         }
 
-        public ResultIntervalType ResultIntervalType { get => resultIntervalType; set => resultIntervalType = value; }
+        public IntervalType ResultIntervalType { get => resultIntervalType; set => resultIntervalType = value; }
         public OperationType OperationType { get => operationType; set => operationType = value; }
         public QuantityType QuantityType { get => quantityType; set => quantityType = value; }
     }
@@ -47,11 +47,11 @@ namespace CalculateOnlineJudge.Entity
     {
         private DateTime startTime;
         private OperationType containedOperationType;
-        private ResultIntervalType resultIntervalType;
+        private IntervalType resultIntervalType;
         private QuantityType quantityType;
         private ExerciseUnit[] exerciseUnits;
 
-        public Exercise(DateTime startTime, OperationType containedOperationType, ResultIntervalType resultIntervalType, QuantityType quantityType, ExerciseUnit[] exerciseUnits)
+        public Exercise(DateTime startTime, OperationType containedOperationType, IntervalType resultIntervalType, QuantityType quantityType, ExerciseUnit[] exerciseUnits)
         {
             this.startTime = startTime;
             this.containedOperationType = containedOperationType;
@@ -62,12 +62,12 @@ namespace CalculateOnlineJudge.Entity
 
         public DateTime StartTime { get => startTime;}
         public OperationType ContainedOperationType { get => containedOperationType;}
-        public ResultIntervalType ResultIntervalType { get => resultIntervalType;}
+        public IntervalType ResultIntervalType { get => resultIntervalType;}
         public QuantityType QuantityType { get => quantityType;}
         public ExerciseUnit[] ExerciseUnits { get => exerciseUnits;}
         public int TotalNum { get => exerciseUnits.Length; }
     }
-    public class ExerciseResult
+    public class JudgeResult
     {
         private int totalNum;
         private int errorNum;
@@ -75,7 +75,7 @@ namespace CalculateOnlineJudge.Entity
         private DateTime endTime;
         private ExerciseUnit[] errorExerciseUnit;
 
-        public ExerciseResult(int totalNum, int errorNum, DateTime startTime, DateTime endTime, ExerciseUnit[] errorExerciseUnit)
+        public JudgeResult(int totalNum, int errorNum, DateTime startTime, DateTime endTime, ExerciseUnit[] errorExerciseUnit)
         {
             this.totalNum = totalNum;
             this.errorNum = errorNum;
@@ -91,5 +91,19 @@ namespace CalculateOnlineJudge.Entity
         public ExerciseUnit[] ErrorExerciseUnit { get => errorExerciseUnit;}
         public float CorrectRate { get => 1f - errorNum / totalNum; }
         public float ErrorRate { get => errorNum / totalNum; }
+    }
+    public class ExerciseResult
+    {
+        private ExerciseResultUnit[] exerciseResultUnit;
+
+        public ExerciseResultUnit[] ExerciseResultUnit { get => exerciseResultUnit; set => exerciseResultUnit = value; }
+    }
+    public class ExerciseResultUnit
+    {
+        private int result;
+        private int remainder;
+
+        public int Result { get => result; set => result = value; }
+        public int Remainder { get => remainder; set => remainder = value; }
     }
 }

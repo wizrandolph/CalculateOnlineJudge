@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.Reflection;
 
-namespace CalculateOnlineJudge.DataBaseAccessFactory_DAL
+namespace CalculateOnlineJudge.ExerciseGeneratorAccessFactory_DAL
 {
     public sealed class ExerciseGeneratorFactory
     {
