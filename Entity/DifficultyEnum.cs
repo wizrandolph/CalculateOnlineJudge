@@ -23,7 +23,7 @@ namespace CalculateOnlineJudge.Entity
     }
     public enum QuantityType
     {
-        E20,
+        E10,
         E30,
         E50,
         E100

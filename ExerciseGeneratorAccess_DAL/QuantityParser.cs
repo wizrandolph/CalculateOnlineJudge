@@ -15,8 +15,8 @@ namespace CalculateOnlineJudge.ExerciseGeneratorAccess_DAL
             int operationCount = 0;
             switch (quantityType)
             {
-                case QuantityType.E20:
-                    quantites[0] = 20;
+                case QuantityType.E10:
+                    quantites[0] = 10;
                     break;
                 case QuantityType.E30:
                     quantites[0] = 30;
@@ -32,20 +32,24 @@ namespace CalculateOnlineJudge.ExerciseGeneratorAccess_DAL
                     break;
             }
             if ((operationType & OperationType.Plus) == OperationType.Plus) operationCount++;
-            if ((operationType & OperationType.Sub) == OperationType.Plus) operationCount++;
-            if ((operationType & OperationType.Mul) == OperationType.Plus) operationCount++;
-            if ((operationType & OperationType.Div) == OperationType.Plus) operationCount++;
+            if ((operationType & OperationType.Sub) == OperationType.Sub) operationCount++;
+            if ((operationType & OperationType.Mul) == OperationType.Mul) operationCount++;
+            if ((operationType & OperationType.Div) == OperationType.Div) operationCount++;
             if ((operationType & OperationType.DivWithRemainder) == OperationType.Plus) operationCount++;
             int countPerOperation = quantites[0] / operationCount;
             int remainder = quantites[0] % operationCount;
-            if ((operationType & OperationType.Plus) == OperationType.Plus) quantites[1] = operationCount;
-            if ((operationType & OperationType.Sub) == OperationType.Plus) quantites[2] = operationCount;
-            if ((operationType & OperationType.Mul) == OperationType.Plus) quantites[3] = operationCount;
-            if ((operationType & OperationType.Div) == OperationType.Plus) quantites[4] = operationCount;
-            if ((operationType & OperationType.DivWithRemainder) == OperationType.Plus) quantites[5] = operationCount;
+            if ((operationType & OperationType.Plus) == OperationType.Plus) quantites[1] = countPerOperation;
+            if ((operationType & OperationType.Sub) == OperationType.Sub) quantites[2] = countPerOperation;
+            if ((operationType & OperationType.Mul) == OperationType.Mul) quantites[3] = countPerOperation;
+            if ((operationType & OperationType.Div) == OperationType.Div) quantites[4] = countPerOperation;
+            if ((operationType & OperationType.DivWithRemainder) == OperationType.DivWithRemainder) quantites[5] = countPerOperation;
             for (int i = 1; i < quantites.Length; i++)
             {
-                quantites[i] += quantites[i] > 0 ? remainder : 0;
+                if(quantites[i] > 0)
+                {
+                    quantites[i] += remainder;
+                    break;
+                }
             }
             return quantites;
         }

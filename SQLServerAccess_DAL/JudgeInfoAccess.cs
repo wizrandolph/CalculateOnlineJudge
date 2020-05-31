@@ -52,8 +52,8 @@ namespace CalculateOnlineJudge.SQLServerAccess_DAL
                         UPDATE  
                             dbo.judgeinformation_table 
                         SET 
-                            totalNum = {0} 
-                            errorNum = {1}
+                            totalNum = {0} ,
+                            errorNum = {1},
                             latestTime = N'{2}'
                         WHERE 
                             userid = {3}

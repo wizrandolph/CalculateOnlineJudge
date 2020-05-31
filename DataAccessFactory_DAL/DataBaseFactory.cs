@@ -12,7 +12,7 @@ namespace CalculateOnlineJudge.DataBaseAccessFactory_DAL
         public static IDataBaseAccess DriveDataBase()
         {
             string path = ConfigurationManager.AppSettings[accessKey];
-            string className = path + relativeClassName;
+            string className = path + "." + relativeClassName;
             return Assembly.Load(path).CreateInstance(className) as IDataBaseAccess;
         }
     }

@@ -98,7 +98,7 @@ namespace CalculateOnlineJudge.Entity
 
         public ExerciseResultUnit[] ExerciseResultUnit { get => exerciseResultUnit; set => exerciseResultUnit = value; }
     }
-    public class ExerciseResultUnit
+    public struct ExerciseResultUnit
     {
         private int result;
         private int remainder;

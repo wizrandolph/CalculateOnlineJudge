@@ -14,7 +14,7 @@ namespace CalculateOnlineJudge.SQLServerAccess_DAL
                 Data Source=132.232.36.194;
                 Initial Catalog=CalculateOnlineJudge_DB;
                 User ID=sa;
-                Password=1236ZCCG99326SA;
+                Password=1236zccg99326SA;
                 Connect Timeout=30;
                 Encrypt=False;
                 TrustServerCertificate=False;

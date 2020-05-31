@@ -15,12 +15,15 @@ namespace CalculateOnlineJudge.ExerciseGeneratorAccess_DAL
             var quantites = QuantityParser.GetQuantity(exerciseOption.QuantityType, exerciseOption.OperationType);
             var exerciseUnits = new ExerciseUnit[quantites[0]];
             int index = 0;
+            int enumIndex = 1;
             for (int i = 1; i < quantites.Length; i++)
             {
+                OperationType t = (OperationType)enumIndex;
                 for (int j = 0; j < quantites[i]; j++)
                 {
-                    GeneratorParser.GetGenerator(exerciseOption.OperationType, exerciseOption.ResultIntervalType).Generate(ref exerciseUnits[index++]);
+                    GeneratorParser.GetGenerator(exerciseOption.OperationType & (OperationType)enumIndex, exerciseOption.ResultIntervalType).Generate(ref exerciseUnits[index++]);
                 }
+                enumIndex *= 2;
             }
             return new Exercise(DateTime.Now, exerciseOption.OperationType, exerciseOption.ResultIntervalType, exerciseOption.QuantityType, exerciseUnits);
         }
@@ -43,6 +46,7 @@ namespace CalculateOnlineJudge.ExerciseGeneratorAccess_DAL
                     exerciseUnits.Add(exercise.ExerciseUnits[i]);
                 }
             }
+
             return new JudgeResult(exercise.TotalNum, errorNum, exercise.StartTime, DateTime.Now, exerciseUnits.ToArray());
         }
     }

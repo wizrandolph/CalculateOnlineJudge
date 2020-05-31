@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FCA6A878-E631-42B4-9837-72A9D976599C}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CalculateOnlineJudge.SQLServerAccess_DAL</RootNamespace>
-    <AssemblyName>CalculateOnlineJudge.SQLServerAccess_DAL</AssemblyName>
+    <ProjectGuid>{4449D3FC-39F9-4439-81F7-288A5E2ABC6D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CalculateOnlineJudge.ExampleTest_UIL</RootNamespace>
+    <AssemblyName>CalculateOnlineJudge.ExampleTest_UIL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,16 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataBaseAccess.cs" />
-    <Compile Include="JudgeInfoAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserAccess.cs" />
-    <Compile Include="UserInfoAccess.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessFactory_DAL\DataBaseAccessFactory_DAL.csproj">
-      <Project>{e6d12dba-27e7-437f-b579-80df91be2ec0}</Project>
-      <Name>DataBaseAccessFactory_DAL</Name>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic_BLL\BusinessLogic_BLL.csproj">
+      <Project>{78ae674b-1934-4a4b-b622-a11470cfbac2}</Project>
+      <Name>BusinessLogic_BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{ed2a6c32-2630-4b79-81b0-307a60487e85}</Project>

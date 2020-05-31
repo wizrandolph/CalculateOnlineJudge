@@ -11,10 +11,6 @@ namespace CalculateOnlineJudge.Entity
         private readonly int userID;
         private readonly string userName;
 
-        public User()
-        {
-        }
-
         public User(int userID, string userName)
         {
             this.userID = userID;
@@ -22,5 +18,7 @@ namespace CalculateOnlineJudge.Entity
         }
 
         public string UserName { get => userName; }
+
+        public int UserID { get => userID; }
     }
 }

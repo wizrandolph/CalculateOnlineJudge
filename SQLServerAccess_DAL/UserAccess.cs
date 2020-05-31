@@ -121,7 +121,7 @@ namespace CalculateOnlineJudge.SQLServerAccess_DAL
             }
             return isUnique;
         }
-        public User GetUser(int userID)
+        public User GetUser(string userName)
         {
             User user = null;
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -130,19 +130,19 @@ namespace CalculateOnlineJudge.SQLServerAccess_DAL
                     string.Format(
                         @"
                         SELECT 
-                            name 
+                            userid 
                         FROM            
                              dbo.user_table 
                         WHERE 
-                            userid = {0}
+                            name = N'{0}'
                         ",
-                        userID),
+                        userName),
                     connection);
                 connection.Open();
                 var reader = command.ExecuteReader();
                 if (reader.Read() && reader.HasRows)
                 {
-                    user = new User(userID, reader.GetString(1));
+                    user = new User(reader.GetInt32(0), userName);
                 }
             }
             return user;

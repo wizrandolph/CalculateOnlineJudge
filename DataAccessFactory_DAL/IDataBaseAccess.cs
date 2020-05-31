@@ -14,7 +14,7 @@ namespace CalculateOnlineJudge.DataBaseAccessFactory_DAL
         void DeleteUser(int userID);
         bool LogInUser(string userName, string password);
         bool CheckUserName(string userName);
-        User GetUser(int userID);
+        User GetUser(string userName);
         #endregion
         #region UserInfo
         void UpdateUserInfo(UserInfo userInfo, int userID);
