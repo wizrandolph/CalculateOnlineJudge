@@ -17,9 +17,9 @@ namespace CalculateOnlineJudge.BusinessLogic_BLL
             {
                 DataBaseFactory.DriveDataBase().UpdateJudgeInfo(judgeInfo, user.UserID);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return new OperationResult("未知错误，修改失败！", false);
+                return new OperationResult("修改失败！" + e.Message, false);
             }
             return new OperationResult("修改成功！", true);
         }
@@ -34,9 +34,9 @@ namespace CalculateOnlineJudge.BusinessLogic_BLL
                     return new OperationResult<JudgeInfo>("获取失败！", false, null);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return new OperationResult<JudgeInfo>("未知错误，获取失败！", false, null);
+                return new OperationResult<JudgeInfo>("获取失败！" + e.Message, false, null);
             }
             return new OperationResult<JudgeInfo>("获取成功！", true, judgeInfo);
         }

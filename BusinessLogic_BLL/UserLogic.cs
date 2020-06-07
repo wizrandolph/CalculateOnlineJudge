@@ -33,9 +33,9 @@ namespace CalculateOnlineJudge.BusinessLogic_BLL
                     return new OperationResult("创建失败！", false);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return new OperationResult("未知错误，创建失败！", false);
+                return new OperationResult("创建失败！ + e.Message", false);
             }
             return new OperationResult("用户创建成功！", true);
         }
@@ -58,9 +58,9 @@ namespace CalculateOnlineJudge.BusinessLogic_BLL
                 }
                 user = DataBaseFactory.DriveDataBase().GetUser(userName);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return new OperationResult<User>("未知错误，创建失败！", false, null);
+                return new OperationResult<User>("创建失败！" + e.Message, false, null);
             }
             return new OperationResult<User>("用户登录成功！", true, user);
         }
@@ -70,9 +70,9 @@ namespace CalculateOnlineJudge.BusinessLogic_BLL
             {
                 DataBaseFactory.DriveDataBase().DeleteUser(user.UserID);  
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return new OperationResult("未知错误，删除失败！", false);
+                return new OperationResult("删除失败！" + e.Message, false);
             }
             return new OperationResult("用户删除成功！", true);
         }

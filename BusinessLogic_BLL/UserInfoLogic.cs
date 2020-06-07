@@ -15,11 +15,19 @@ namespace CalculateOnlineJudge.BusinessLogic_BLL
         {
             try
             {
+                if(!FormatChecker.CheckEmailFormat(userInfo.Email))
+                {
+                    return new OperationResult("邮箱格式错误！", false);
+                }
+                if(!FormatChecker.CheckPhoneFormat(userInfo.Phone))
+                {
+                    return new OperationResult("手机号格式错误！", false);
+                }
                 DataBaseFactory.DriveDataBase().UpdateUserInfo(userInfo, user.UserID);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return new OperationResult("未知错误，修改失败！", false);
+                return new OperationResult("修改失败！" + e.Message, false);
             }
             return new OperationResult("修改成功！", true);
         }
@@ -34,9 +42,9 @@ namespace CalculateOnlineJudge.BusinessLogic_BLL
                     return new OperationResult<UserInfo>("获取失败！", false, null);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return new OperationResult<UserInfo>("未知错误，获取失败！", false, null);
+                return new OperationResult<UserInfo>("获取失败！" + e.Message, false, null);
             }
             return new OperationResult<UserInfo>("获取成功！", true, userInfo);
         }
