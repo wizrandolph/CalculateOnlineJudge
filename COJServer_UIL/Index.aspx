@@ -122,14 +122,21 @@ form p > * {
        
         <form id="form1" runat="server" method="post">
         <div>
-            <p><label class="label_input">用户名</label><input type="text" name="username" id="username" /></p>
-            <p><label class="label_input">密码</label><input type="text" name="password" id ="password"/></p>
+            <p>
+                <asp:label runat="server" class="label_input">用户名</asp:label>
+                <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
+            </p>
+            <p>
+                <asp:label runat="server" class="label_input">密码</asp:label>
+                <asp:TextBox ID="Password" runat="server" ></asp:TextBox>
+            </p>
         </div>
 
             <asp:Button ID="Button1_Index" runat="server" OnClick="Button1_Click_Index" Text="进入导航" />
             <asp:Button ID="Button2_Index" runat="server" OnClick="Button2_Click_Index" Text="登录" />
             <asp:Button ID="Button3_Index" runat="server" OnClick="Button3_Click_Index" Text="注册" />
-        <asp:Label ID="Label1_Index" runat="server" Text="Label"></asp:Label>
+            <p><asp:Label ID="Label1_Index" runat="server" Text="Label"></asp:Label></p>
+            <p><asp:Label ID="Label2_Index" runat="server" Text="Label"></asp:Label></p>
     </form>
         
 </div>

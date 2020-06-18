@@ -17,13 +17,15 @@ namespace COJServer_UIL
 
         protected void Button2_Click_Index(object sender, EventArgs e)
         {
-            string UserName = Request.Form.Get("username");
-            string Password = Request.Form.Get("password");
+            string username = UserName.Text;
+            string password = Password.Text;
             //string username = this.username
-            var userOR = UserLogic.LogInUser(UserName, Password);
-            var userInfoOR = UserInfoLogic.GetUserInfo(userOR.Result);
-            string prompt = userInfoOR.Prompt;
-            Label1_Index.Text = UserName;
+            var userOR = UserLogic.LogInUser(username, password);
+            string prompt = userOR.Prompt;
+            Label2_Index.Text = prompt;
+            CalculateOnlineJudge.Entity.User user = UserLogic.LogInUser(username, password).Result;
+            Label1_Index.Text = user.UserName;
+            Label2_Index.Text = prompt;
         }
         protected void Button1_Click_Index(object sender, EventArgs e)
         {

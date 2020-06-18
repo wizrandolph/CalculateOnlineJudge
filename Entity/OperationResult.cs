@@ -32,6 +32,7 @@ namespace CalculateOnlineJudge.Entity
         private T result;
 
 
+
         public OperationResult(string prompt, bool isSuccess, T result)
         {
             this.prompt = prompt;

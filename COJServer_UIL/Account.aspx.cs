@@ -22,8 +22,12 @@ namespace COJServer_UIL
             Label2_A.Text = "上次登录账号："+Username_signup;
             Label3_A.Text = "上次登录密码："+Password_signup;
             var OR = UserLogic.CreateUser(Username_signup, Password_signup);
-            string prompt = OR.Prompt;
-            Label1_Account.Text = "上次登陆结果："+prompt;
+            Label1_Account.Text = "上次登陆结果：";
+            if(OR.IsSuccess == true)
+            {
+                Server.Transfer("Index.aspx");
+            }
+            
 
         }
     }
