@@ -11,61 +11,70 @@ namespace COJServer_UIL
 {
 
 
-    public partial class Test1
+    public partial class Account
     {
 
         /// <summary>
-        /// form1_practiceset 控件。
+        /// form1_Account 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1_practiceset;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1_Account;
 
         /// <summary>
-        /// selectTime 控件。
+        /// UserName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect selectTime;
+        protected global::System.Web.UI.WebControls.TextBox UserName;
 
         /// <summary>
-        /// selectType 控件。
+        /// Password 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect selectType;
+        protected global::System.Web.UI.WebControls.TextBox Password;
 
         /// <summary>
-        /// Button1_practice 控件。
+        /// Button1_Account 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1_practice;
+        protected global::System.Web.UI.WebControls.Button Button1_Account;
 
         /// <summary>
-        /// Button2_practice 控件。
+        /// Label1_Account 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2_practice;
+        protected global::System.Web.UI.WebControls.Label Label1_Account;
 
         /// <summary>
-        /// Label1_PracSet 控件。
+        /// Label2_A 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1_PracSet;
+        protected global::System.Web.UI.WebControls.Label Label2_A;
+
+        /// <summary>
+        /// Label3_A 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3_A;
     }
 }

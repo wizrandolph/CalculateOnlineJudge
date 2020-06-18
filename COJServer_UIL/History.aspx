@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PracticeSet.aspx.cs" Inherits="COJServer_UIL.Test1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="History.aspx.cs" Inherits="COJServer_UIL.Test1" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>练习</title>
+    <title>导航</title>
     <style type ="text/css">
     body {
     background-image: url("./asset/images/login/loginBac.jpg");
@@ -67,7 +67,7 @@ form p > * {
     border: 0;
 }
  
-#Button1 {
+#Button1_menu {
     font-size: 14px;
     font-family: 宋体;
  
@@ -79,11 +79,11 @@ form p > * {
     color: white;
     background-color: #3BD9FF;
     border-radius: 6px;
-    border: 4px;
+    border: 0;
  
     float: left;
 }
-#Button2 {
+#Button2_menu {
     font-size: 14px;
     font-family: 宋体;
  
@@ -95,7 +95,7 @@ form p > * {
     color: white;
     background-color: #3BD9FF;
     border-radius: 6px;
-    border: 4px;
+    border: 0;
  
     float: left;
 }
@@ -119,7 +119,10 @@ form p > * {
     padding: 0 28px;
 }
 
-
+#form1 {
+    left: 50%;
+    top: 50%;
+}
 </style>
 </head>
 <body>
@@ -127,26 +130,12 @@ form p > * {
     <div id="login_frame">
  
     <p ><img id="image_logo" src="./asset/images/login/fly.jpg"/></p>
-    <form id="form1_practiceset" runat="server">
+        <form id="form1_History" runat="server">
         <div>
         </div>
-        <select name="DropDownList" id="selectTime" runat="server">
-            <option value="A">时间1</option>
-            <option value="B">时间2</option>
-            <option value="C">时间3</option>
-            <option value="D">时间4</option>
-        </select>
-        <select name="DropDownList" id="selectType" runat="server">
-            <option value="A">题型1</option>
-            <option value="B">题型2</option>
-            <option value="C">题型3</option>
-            <option value="D">题型4</option>
-        </select>
-
-        <asp:Button ID="Button1_practice" runat="server" OnClick="Go2Prac_Click_PracSet" Text="我选好了！" />
-        <asp:Button ID="Button2_practice" runat="server" OnClick="Back2Menu_Click_PracSet" Text="返回" />
-        <asp:Label ID="Label1_PracSet" runat="server" Text="Label"></asp:Label> 
-        
+        <asp:Button ID="Button1_History" runat="server" OnClick="Button1_Click_History" Text="功能1" />
+        <asp:Button ID="Button2_History" runat="server" OnClick="Back2Menu_History" Text="返回导航" />
+        <!--<asp:Label ID="Label1_History" runat="server" Text="Label"></asp:Label> -->
     </form>
         
 </div>

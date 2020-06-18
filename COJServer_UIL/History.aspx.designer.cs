@@ -11,43 +11,43 @@ namespace COJServer_UIL
 {
 
 
-    public partial class Webform1
+    public partial class Test1
     {
 
         /// <summary>
-        /// form1_Prac 控件。
+        /// form1_History 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1_Prac;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1_History;
 
         /// <summary>
-        /// Button1_Practice 控件。
+        /// Button1_History 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1_Practice;
+        protected global::System.Web.UI.WebControls.Button Button1_History;
 
         /// <summary>
-        /// Button2_Practice 控件。
+        /// Button2_History 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2_Practice;
+        protected global::System.Web.UI.WebControls.Button Button2_History;
 
         /// <summary>
-        /// Label1_Prac 控件。
+        /// Label1_History 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1_Prac;
+        protected global::System.Web.UI.WebControls.Label Label1_History;
     }
 }

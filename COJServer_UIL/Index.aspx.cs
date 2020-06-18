@@ -15,17 +15,23 @@ namespace COJServer_UIL
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button2_Click_Index(object sender, EventArgs e)
         {
-            string userName = "FREEstrikerABbos";
-            string password = "1236zccg99326TEST";
-            var OR = UserLogic.CreateUser(userName, password);
-            string prompt = OR.Prompt;
-            //Label1.Text = prompt;
+            string UserName = Request.Form.Get("username");
+            string Password = Request.Form.Get("password");
+            //string username = this.username
+            var userOR = UserLogic.LogInUser(UserName, Password);
+            var userInfoOR = UserInfoLogic.GetUserInfo(userOR.Result);
+            string prompt = userInfoOR.Prompt;
+            Label1_Index.Text = UserName;
         }
-        protected void Submit_Click(object sender, EventArgs e)
+        protected void Button1_Click_Index(object sender, EventArgs e)
         {
             Server.Transfer("Menu.aspx"); 
+        }
+        protected void Button3_Click_Index(object sender, EventArgs e)
+        {
+            Server.Transfer("Account.aspx");
         }
     }
 }

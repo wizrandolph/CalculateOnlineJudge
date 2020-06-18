@@ -8,10 +8,10 @@
     <title>登陆</title>
     <style type ="text/css">
     body {
-    background-image: url("./asset/images/login/loginBac.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
+        background-image: url("./asset/images/login/loginBac.jpg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
  
 #login_frame {
     width: 400px;
@@ -67,7 +67,7 @@ form p > * {
     border: 0;
 }
  
-#Button1 {
+#Button1_Index {
     font-size: 14px;
     font-family: 宋体;
  
@@ -83,7 +83,7 @@ form p > * {
  
     float: left;
 }
-#Button2 {
+#Button2_Index {
     font-size: 14px;
     font-family: 宋体;
  
@@ -100,15 +100,6 @@ form p > * {
     float: left;
 }
  
-#forget_pwd {
-    font-size: 12px;
-    color: white;
-    text-decoration: none;
-    position: relative;
-    float: right;
-    top: 5px;
- 
-}
  
 #forget_pwd:hover {
     color: blue;
@@ -127,20 +118,18 @@ form p > * {
     <div id="login_frame">
  
     <p ><img id="image_logo" src="./asset/images/login/fly.jpg"/></p>
- 
-    <form method="post" action="login.js">
- 
-        <p><label class="label_input">用户名</label><input type="text" id="username" class="text_field"/></p>
-        <p><label class="label_input">密码</label><input type="text" id="password" class="text_field"/></p>
         
-        
-    </form>
-        <form id="form1" runat="server">
+       
+        <form id="form1" runat="server" method="post">
         <div>
+            <p><label class="label_input">用户名</label><input type="text" name="username" id="username" /></p>
+            <p><label class="label_input">密码</label><input type="text" name="password" id ="password"/></p>
         </div>
-        <asp:Button ID="Button1" runat="server" OnClick="Submit_Click" Text="登录" />
-        <asp:Button ID="Button2" runat="server" OnClick="Button1_Click" Text="注册" />
-        <!--<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> -->
+
+            <asp:Button ID="Button1_Index" runat="server" OnClick="Button1_Click_Index" Text="进入导航" />
+            <asp:Button ID="Button2_Index" runat="server" OnClick="Button2_Click_Index" Text="登录" />
+            <asp:Button ID="Button3_Index" runat="server" OnClick="Button3_Click_Index" Text="注册" />
+        <asp:Label ID="Label1_Index" runat="server" Text="Label"></asp:Label>
     </form>
         
 </div>

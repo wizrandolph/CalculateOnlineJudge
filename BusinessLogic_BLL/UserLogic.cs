@@ -35,7 +35,7 @@ namespace CalculateOnlineJudge.BusinessLogic_BLL
             }
             catch (Exception e)
             {
-                return new OperationResult("创建失败！ + e.Message", false);
+                return new OperationResult("创建失败！" + e.Message, false);
             }
             return new OperationResult("用户创建成功！", true);
         }
