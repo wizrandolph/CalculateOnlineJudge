@@ -19,10 +19,7 @@ namespace COJServer_UIL
             //string username = this.username
             var userOR = UserLogic.LogInUser(username, password);
             string prompt = userOR.Prompt;
-            Label2_Index.Text = prompt;
             CalculateOnlineJudge.Entity.User user = UserLogic.LogInUser(username, password).Result;
-            Label1_Index.Text = user.UserName;
-            Label2_Index.Text = prompt;
             string url = "Menu.aspx?name=" + user.UserName +"&id="+user.UserID.ToString();
             Response.Redirect(url);
         }

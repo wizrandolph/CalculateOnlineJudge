@@ -8,29 +8,36 @@
     <title>登陆</title>
     <style type ="text/css">
     body {
-        background-image: url("./asset/images/login/loginBac.jpg");
+        background-image: url("./asset/images/login/loginbg.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
     }
- 
-#login_frame {
-    width: 400px;
-    height: 260px;
-    padding: 13px;
- 
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -200px;
-    margin-top: -200px;
- 
-    background-color: rgba(240, 255, 255, 0.5);
- 
-    border-radius: 10px;
-    text-align: center;
-}
+
+        #login_frame {
+            width: 400px;
+            height: 260px;
+            padding: 13px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -200px;
+            background-color: rgba(240, 255, 255, 0.5);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #button_frame {
+            position:absolute;
+            left:50%;
+            text-align:center;
+        }
  
 form p > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+form p {
     display: inline-block;
     vertical-align: middle;
 }
@@ -41,20 +48,19 @@ form p > * {
     height: 50%;
     left: 50%;
     top: 50%
-
 }
  
 .label_input {
     font-size: 14px;
     font-family: 宋体;
  
-    width: 65px;
+    width:80px;
     height: 28px;
     line-height: 28px;
     text-align: center;
  
     color: white;
-    background-color: #3CD8FF;
+    background-color: #FFA042;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -66,8 +72,11 @@ form p > * {
     border-bottom-right-radius: 5px;
     border: 0;
 }
+#content{
+    height: 260px;
+}
  
-#Button1_Index {
+#Button3_Index {
     font-size: 14px;
     font-family: 宋体;
  
@@ -77,7 +86,7 @@ form p > * {
     text-align: center;
  
     color: white;
-    background-color: #3BD9FF;
+    background-color: #FFA042;
     border-radius: 6px;
     border: 4px;
  
@@ -93,7 +102,7 @@ form p > * {
     text-align: center;
  
     color: white;
-    background-color: #3BD9FF;
+    background-color: #FFA042;
     border-radius: 6px;
     border: 4px;
  
@@ -116,30 +125,26 @@ form p > * {
 <body>
     
     <div id="login_frame">
- 
-    <p ><img id="image_logo" src="./asset/images/login/fly.jpg"/></p>
         
        
         <form id="form1" runat="server" method="post">
-        <div>
+        <div id ="content">
             <p>
                 <asp:label runat="server" class="label_input">用户名</asp:label>
-                <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
+                <asp:TextBox ID="UserName" class="text_field" runat="server"></asp:TextBox>
             </p>
             <p>
                 <asp:label runat="server" class="label_input">密码</asp:label>
-                <asp:TextBox ID="Password" runat="server" ></asp:TextBox>
+                <asp:TextBox ID="Password" class="text_field" runat="server" ></asp:TextBox>
+            </p>
+            <p>
+                <asp:Button ID="Button2_Index" runat="server" OnClick="Button2_Click_Index" Text="登录" />
+                <asp:Button ID="Button3_Index" runat="server" OnClick="Button3_Click_Index" Text="注册" />
             </p>
         </div>
-
-            <asp:Button ID="Button1_Index" runat="server" OnClick="Button1_Click_Index" Text="进入导航" />
-            <asp:Button ID="Button2_Index" runat="server" OnClick="Button2_Click_Index" Text="登录" />
-            <asp:Button ID="Button3_Index" runat="server" OnClick="Button3_Click_Index" Text="注册" />
-            <p><asp:Label ID="Label1_Index" runat="server" Text="Label"></asp:Label></p>
-            <p><asp:Label ID="Label2_Index" runat="server" Text="Label"></asp:Label></p>
-    </form>
+        </form>
         
-</div>
+    </div>
 
 </body>
 </html>

@@ -70,7 +70,10 @@ namespace COJServer_UIL
             }
 
             ExerciseOR = ExerciseLogic.GetExercise(ExerciseOp);
+            Label1.Text = ExerciseOR.Prompt;
+            /*
             num = ExerciseOR.Result.ExerciseUnits.Length;
+            
             
             for(int i = 0; i < num; i++)
             {
@@ -78,19 +81,27 @@ namespace COJServer_UIL
                 li.InnerText = ExerciseOR.Result.ExerciseUnits[i].Topic;
 
                 TextBox t = new TextBox();
-                t.Attributes["runat"] = "server";
-                t.ID = "text" + i.ToString();
+                t.ID = "result" + i.ToString();
+
 
                 Label l = new Label();
                 l.ID = "dynalabel" + i.ToString();
 
                 li.Controls.Add(t);
+                if (Type == "D")
+                {
+                    TextBox trm = new TextBox();
+                    trm.ID = "remainder" + i.ToString();
+                    li.Controls.Add(trm);
+                }
+
                 li.Controls.Add(l);
 
                 Exlist.Controls.Add(li);
                 //Exlist.Controls.Add(t);
 
             }
+            */
             //CreateTextBoxList(num);
 
             
@@ -116,16 +127,29 @@ namespace COJServer_UIL
             {
                 ExerciseResultUnit = new ExerciseResultUnit[num]
             };
-           
+
             for(int i = 0; i< num; i++)
             {
-                txt = exercise_frame.FindControl("text" + i.ToString()) as TextBox;
+                txt = exercise_frame.FindControl("result" + i.ToString()) as TextBox;
                 ExerciseResult.ExerciseResultUnit[i].Remainder = 0;
                 if (Regex.IsMatch(txt.Text, @"^[_0-9]{1,20}$"))
                     ExerciseResult.ExerciseResultUnit[i].Result = Convert.ToInt32(txt.Text);
                 else
                     ExerciseResult.ExerciseResultUnit[i].Result = -1;
             }
+
+            if(Type == "D")
+            {
+                for (int i = 0; i < num; i++)
+                {
+                    txt = exercise_frame.FindControl("remainder" + i.ToString()) as TextBox;
+                    if (Regex.IsMatch(txt.Text, @"^[_0-9]{1,20}$"))
+                        ExerciseResult.ExerciseResultUnit[i].Remainder = Convert.ToInt32(txt.Text);
+                    else
+                        ExerciseResult.ExerciseResultUnit[i].Remainder = -1;
+                }
+            }
+            
             CalculateOnlineJudge.Entity.User user = new CalculateOnlineJudge.Entity.User(Convert.ToInt32(UserId), Username);
             var judgeResult = ExerciseLogic.JudgeExercise(ExerciseOR.Result, ExerciseResult, user);
             for(int i=0;i<num;i++)
