@@ -23,7 +23,7 @@ namespace COJServer_UIL
             CalculateOnlineJudge.Entity.User user = UserLogic.LogInUser(username, password).Result;
             Label1_Index.Text = user.UserName;
             Label2_Index.Text = prompt;
-            string url = "Menu.aspx?name=" + user.UserName;
+            string url = "Menu.aspx?name=" + user.UserName +"&id="+user.UserID.ToString();
             Response.Redirect(url);
         }
         protected void Button1_Click_Index(object sender, EventArgs e)

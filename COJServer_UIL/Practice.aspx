@@ -12,24 +12,21 @@
 </head>
 <body>
     
-    <div id="exercise_frame">
-        <ul id ="Exlist" runat ="server" > </ul>
-        
-        
-     </div>
-    <div id="control_frame">
-        <form id="form1_Prac" runat="server">
-        <asp:Button ID="Button1_Practice" runat="server" OnClick="Submit_Click_Prac" Text="提交试题" />
-        <asp:Button ID="Button2_Practice" runat="server" OnClick="Back2Menu_Click_Prac" Text="返回" />
-        <!--<asp:Label ID="Label1_Prac" runat="server" Text="Label"></asp:Label> -->
-        </form>
-    </div>
-    <div id="debug_frame">
-        <p><asp:Label ID="Label1" runat="server" Text="用户名"></asp:Label></p>
-        <p><asp:Label ID="Label2" runat="server" Text="运算类型"></asp:Label></p>
-        <p><asp:Label ID="Label3" runat="server" Text="运算类型"></asp:Label></p>
-        <p><asp:Label ID="Label4" runat="server" Text="运算类型"></asp:Label></p>
-    </div>
+    <form id ="form1" runat ="server">
+        <div id="exercise_frame" runat ="server">
+            <ul id ="Exlist" runat ="server" > </ul>      
+        </div>
+        <div id="control_frame">
+            <asp:Button ID="Button1_Practice" runat="server" OnClick="Submit_Prac" Text="提交试题" />
+            <asp:Button ID="Button2_Practice" runat="server" OnClick="Back2Menu_Click_Prac" Text="返回" />
+        </div>
+        <div id="debug_frame">
+            <p><asp:Label ID="Label1" runat="server" Text="用户名"></asp:Label></p>
+            <p><asp:Label ID="Label2" runat="server" Text="运算类型"></asp:Label></p>
+            <p><asp:Label ID="Label3" runat="server" Text="运算类型"></asp:Label></p>
+            <p><asp:Label ID="Label4" runat="server" Text="运算类型"></asp:Label></p>
+        </div>
+    </form>
 
 </body>
 </html>

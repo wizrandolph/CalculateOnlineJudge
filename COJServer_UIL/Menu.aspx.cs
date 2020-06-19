@@ -10,16 +10,19 @@ namespace COJServer_UIL
 {
     public partial class Menu : System.Web.UI.Page
     {
+        private string UserId;
+        private string UserName;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1_Menu.Text = Request.QueryString["name"];
+            UserName = Request.QueryString["name"];
+            UserId = Request.QueryString["id"];
+
         }
 
         
         protected void Go2Practice(object sender, EventArgs e)
         {
-            string username = Label1_Menu.Text;
-            string url = "SetPrac.aspx?username=" + username;
+            string url = "SetPrac.aspx?username=" + UserName +"&id="+UserId;
             Response.Redirect(url);
             //Server.Transfer("SetPrac.aspx");
         }

@@ -9,10 +9,12 @@ namespace COJServer_UIL
 {
     public partial class SetPrac : System.Web.UI.Page
     {
-        private string username;
+        private string UserName;
+        private string UserId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            username = Request.QueryString["username"];
+            UserName = Request.QueryString["username"];
+            UserId = Request.QueryString["id"];
         }
         protected void Go2Prac_Click_PracSet(object sender, EventArgs e)
         {
@@ -20,7 +22,7 @@ namespace COJServer_UIL
             string practiceTime = Request.Form.Get("selectTime");
             string practiceQuantity = Request.Form.Get("selectQuantity");
             string practiceInterval = Request.Form.Get("selectInterval");
-            string url = "Practice.aspx?user=" + username + "&time=" + practiceTime + "&type=" + practiceType + "&quan=" + practiceQuantity + "&intvl=" + practiceInterval;
+            string url = "Practice.aspx?user=" + UserName + "&time=" + practiceTime + "&type=" + practiceType + "&quan=" + practiceQuantity + "&intvl=" + practiceInterval +"&id="+UserId;
             Response.Redirect(url);
             //Label1.Text = practiceQuantity;
         }
