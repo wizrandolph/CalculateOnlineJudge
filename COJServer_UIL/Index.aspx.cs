@@ -8,12 +8,9 @@ using System.Web.UI.WebControls;
 
 namespace COJServer_UIL
 {
-    public partial class Test1 : System.Web.UI.Page
+    public partial class Index : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         protected void Button2_Click_Index(object sender, EventArgs e)
         {
@@ -26,6 +23,8 @@ namespace COJServer_UIL
             CalculateOnlineJudge.Entity.User user = UserLogic.LogInUser(username, password).Result;
             Label1_Index.Text = user.UserName;
             Label2_Index.Text = prompt;
+            string url = "Menu.aspx?name=" + user.UserName;
+            Response.Redirect(url);
         }
         protected void Button1_Click_Index(object sender, EventArgs e)
         {

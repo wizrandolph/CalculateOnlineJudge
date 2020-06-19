@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="History.aspx.cs" Inherits="COJServer_UIL.Test1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="History.aspx.cs" Inherits="COJServer_UIL.History" %>
 
 <!DOCTYPE html>
 

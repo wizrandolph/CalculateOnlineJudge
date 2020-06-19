@@ -11,7 +11,7 @@ namespace COJServer_UIL
 {
 
 
-    public partial class Test1
+    public partial class Index
     {
 
         /// <summary>
