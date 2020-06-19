@@ -32,6 +32,7 @@ namespace CalculateOnlineJudge.ExerciseGeneratorAccess_DAL
         public JudgeResult JudgeExercise(Exercise exercise, ExerciseResult exerciseResult)
         {
             List<ExerciseUnit> exerciseUnits = new List<ExerciseUnit>();
+            List<int> exerciseIndex = new List<int>();
             int errorNum = 0;
             for (int i = 0; i < exercise.ExerciseUnits.Length; i++)
             {
@@ -44,10 +45,11 @@ namespace CalculateOnlineJudge.ExerciseGeneratorAccess_DAL
                 {
                     errorNum++;
                     exerciseUnits.Add(exercise.ExerciseUnits[i]);
+                    exerciseIndex.Add(i);
                 }
             }
 
-            return new JudgeResult(exercise.TotalNum, errorNum, exercise.StartTime, DateTime.Now, exerciseUnits.ToArray());
+            return new JudgeResult(exercise.TotalNum, errorNum, exercise.StartTime, DateTime.Now, exerciseUnits.ToArray(), exerciseIndex.ToArray());
         }
     }
 }

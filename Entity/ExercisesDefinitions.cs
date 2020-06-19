@@ -74,14 +74,16 @@ namespace CalculateOnlineJudge.Entity
         private DateTime startTime;
         private DateTime endTime;
         private ExerciseUnit[] errorExerciseUnit;
+        private int[] errorExerciseIndex;
 
-        public JudgeResult(int totalNum, int errorNum, DateTime startTime, DateTime endTime, ExerciseUnit[] errorExerciseUnit)
+        public JudgeResult(int totalNum, int errorNum, DateTime startTime, DateTime endTime, ExerciseUnit[] errorExerciseUnit, int[] errorExerciseIndex)
         {
             this.totalNum = totalNum;
             this.errorNum = errorNum;
             this.startTime = startTime;
             this.endTime = endTime;
             this.errorExerciseUnit = errorExerciseUnit;
+            this.errorExerciseIndex = errorExerciseIndex;
         }
 
         public int TotalNum { get => totalNum;}
@@ -91,6 +93,7 @@ namespace CalculateOnlineJudge.Entity
         public ExerciseUnit[] ErrorExerciseUnit { get => errorExerciseUnit;}
         public float CorrectRate { get => 1f - errorNum / totalNum; }
         public float ErrorRate { get => errorNum / totalNum; }
+        public int[] ErrorExerciseIndex { get => errorExerciseIndex; }
     }
     public class ExerciseResult
     {

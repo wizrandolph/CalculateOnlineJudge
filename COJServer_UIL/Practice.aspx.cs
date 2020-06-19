@@ -1,6 +1,7 @@
 ﻿using CalculateOnlineJudge.BusinessLogic_BLL;
 using CalculateOnlineJudge.Entity;
 using System;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
@@ -79,8 +80,15 @@ namespace COJServer_UIL
                 TextBox t = new TextBox();
                 t.Attributes["runat"] = "server";
                 t.ID = "text" + i.ToString();
+
+                Label l = new Label();
+                l.ID = "dynalabel" + i.ToString();
+
+                li.Controls.Add(t);
+                li.Controls.Add(l);
+
                 Exlist.Controls.Add(li);
-                Exlist.Controls.Add(t);
+                //Exlist.Controls.Add(t);
 
             }
             //CreateTextBoxList(num);
@@ -102,6 +110,8 @@ namespace COJServer_UIL
         protected void Submit_Prac(object sender, EventArgs e)
         {
             TextBox txt;
+            //HtmlGenericControl p = new HtmlGenericControl("p");
+
             ExerciseResult ExerciseResult = new ExerciseResult()
             {
                 ExerciseResultUnit = new ExerciseResultUnit[num]
@@ -111,10 +121,28 @@ namespace COJServer_UIL
             {
                 txt = exercise_frame.FindControl("text" + i.ToString()) as TextBox;
                 ExerciseResult.ExerciseResultUnit[i].Remainder = 0;
-                ExerciseResult.ExerciseResultUnit[i].Result = Convert.ToInt32(txt.Text);
+                if (Regex.IsMatch(txt.Text, @"^[_0-9]{1,20}$"))
+                    ExerciseResult.ExerciseResultUnit[i].Result = Convert.ToInt32(txt.Text);
+                else
+                    ExerciseResult.ExerciseResultUnit[i].Result = -1;
             }
             CalculateOnlineJudge.Entity.User user = new CalculateOnlineJudge.Entity.User(Convert.ToInt32(UserId), Username);
             var judgeResult = ExerciseLogic.JudgeExercise(ExerciseOR.Result, ExerciseResult, user);
+            for(int i=0;i<num;i++)
+            {
+                Label jdglabel;
+                jdglabel = exercise_frame.FindControl("dynalabel" + i.ToString()) as Label;
+                jdglabel.Text = "√";
+            }
+            for(int i=0;i<judgeResult.Result.ErrorExerciseIndex.Length;i++)
+            {
+                Label jdglabel;
+                jdglabel = exercise_frame.FindControl("dynalabel" + judgeResult.Result.ErrorExerciseIndex[i].ToString()) as Label;
+                jdglabel.Text = "×";
+            }
+            
+
+
             Label2.Text = judgeResult.Prompt;
             Label3.Text = judgeResult.Result.TotalNum.ToString();
             Label4.Text = judgeResult.Result.ErrorNum.ToString();
