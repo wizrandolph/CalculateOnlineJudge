@@ -19,16 +19,18 @@ namespace COJServer_UIL
         {
             string Username_signup = UserName.Text;
             string Password_signup = Password.Text;
-            Label2_A.Text = "上次登录账号："+Username_signup;
-            Label3_A.Text = "上次登录密码："+Password_signup;
             var OR = UserLogic.CreateUser(Username_signup, Password_signup);
-            Label1_Account.Text = "上次登陆结果：";
-            if(OR.IsSuccess == true)
+            MessaegBox(OR.Prompt);
+            Label1_Account.Text = OR.Prompt;
+            System.Threading.Thread.Sleep(5000);
+            if (OR.IsSuccess == true)
             {
                 Server.Transfer("Index.aspx");
             }
-            
-
+        }
+        private void MessaegBox(string msg)
+        {
+            Page.ClientScript.RegisterClientScriptBlock(GetType(), "js", "<script>alert('" + msg + "');</script>");
         }
     }
 }

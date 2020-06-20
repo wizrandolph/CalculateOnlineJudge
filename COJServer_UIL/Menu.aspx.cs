@@ -1,4 +1,5 @@
 ﻿using CalculateOnlineJudge.BusinessLogic_BLL;
+using CalculateOnlineJudge.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,13 @@ namespace COJServer_UIL
     {
         private string UserId;
         private string UserName;
+        protected CalculateOnlineJudge.Entity.User user;
         protected void Page_Load(object sender, EventArgs e)
         {
             UserName = Request.QueryString["name"];
             UserId = Request.QueryString["id"];
-
+            user = new CalculateOnlineJudge.Entity.User(Convert.ToInt32(UserId), UserName);
+            Label1_Menu.Text = "当前用户： "+UserName;
         }
 
         
@@ -24,15 +27,35 @@ namespace COJServer_UIL
         {
             string url = "SetPrac.aspx?username=" + UserName +"&id="+UserId;
             Response.Redirect(url);
-            //Server.Transfer("SetPrac.aspx");
         }
         protected void Go2History(object sender, EventArgs e)
         {
-            Server.Transfer("History.aspx");
+            string url = "History.aspx?username=" + UserName + "&id=" + UserId;
+            Response.Redirect(url);
         }
-        protected void GetMyInfo(object senderm, EventArgs e)
+        protected void GetMyInfo(object sender, EventArgs e)
         {
+            string url = "UserInfo.aspx?username=" + UserName + "&id=" + UserId;
+            Response.Redirect(url);
+        }
+        protected void DeleteAccount(object sender, EventArgs e)
+        {
+            OperationResult deleteOR;
+            deleteOR = UserLogic.DeleteUser(user);
+            MessaegBox(deleteOR.Prompt);
+            System.Threading.Thread.Sleep(5000);
+            Server.Transfer("Index.aspx");
+        }
+        protected void Logoff(object sender, EventArgs e)
+        {
+            Context.Session.Clear();    //从会话状态集合中移除所有的键和值
+            Context.Session.Abandon();  //取消当前会话
+            Server.Transfer("Index.aspx");
 
+        }
+        private void MessaegBox(string msg)
+        {
+            Page.ClientScript.RegisterClientScriptBlock(GetType(), "js", "<script>alert('" + msg + "');</script>");
         }
     }
 }

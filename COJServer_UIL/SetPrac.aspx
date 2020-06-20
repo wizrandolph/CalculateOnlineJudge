@@ -26,6 +26,48 @@
             border-radius: 10px;
             text-align: center;
         }
+        #Button1_practice {
+            font-size: 14px;
+            font-family: 微软雅黑;
+            width: 120px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            color: white;
+            background-color: #FFA042;
+            border-radius: 6px;
+            border: 4px;
+        }
+        #Button2_practice {
+            font-size: 14px;
+            font-family: 微软雅黑;
+            width: 120px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            color: white;
+            background-color: #FFA042;
+            border-radius: 6px;
+            border: 4px;
+        }
+        select {
+            height: 28px;
+            border-radius: 5px;
+            border: 0;
+        }
+        #content {
+            width: 400px;
+            position: absolute;
+            top: 70px;
+            left:13px;
+
+        }
+        #control_frame {
+            width: 400px;
+            position:absolute;
+            top:170px;
+            left:13px;
+        }
     </style>
 </head>
 <body>
@@ -34,8 +76,9 @@
  
     
     <form id="form1_practiceset" runat="server">
-        <div id="select_frame">   
-            <select name="DropDownList" id="selectTime" runat="server">
+        <div id="select_frame"> 
+            <div id ="content">
+            <select name="DropDownList" id="selectTime" runat="server" >
                 <option value="A">5分钟</option>
                 <option value="B">10分钟</option>
                 <option value="C">30分钟</option>
@@ -59,12 +102,13 @@
                 <option value="C">50以内</option>
                 <option value="D">100以内</option>
             </select>
+            </div>
             <div id="control_frame">
                 <asp:Button ID="Button1_practice" runat="server" OnClick="Go2Prac_Click_PracSet" Text="我选好了！" />
                 <asp:Button ID="Button2_practice" runat="server" OnClick="Back2Menu_Click_PracSet" Text="返回" />
             </div>
             <div id="debug_frame">
-                <asp:Label ID="Label1" runat="server" Text=""></asp:Label> 
+                <asp:Label ID="Label1" runat="server"></asp:Label> 
             </div>
         </div>
         

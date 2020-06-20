@@ -14,18 +14,18 @@
         background-color: #ffce34;
     }
 
-        #login_frame {
-            width: 400px;
-            height: 260px;
-            padding: 13px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-left: -200px;
-            margin-top: -200px;
-            background-color: rgba(240, 255, 255, 0.5);
-            border-radius: 10px;
-            text-align: center;
+    #login_frame {
+        width: 400px;
+        height: 260px;
+        padding: 13px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -200px;
+        margin-top: -200px;
+        background-color: rgba(240, 255, 255, 0.5);
+        border-radius: 10px;
+        text-align: center;
         }
  
 form p > * {

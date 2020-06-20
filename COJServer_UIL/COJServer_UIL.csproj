@@ -72,6 +72,7 @@
     <Content Include="Practice.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="Index.aspx" />
+    <Content Include="UserInfo.aspx" />
     <Content Include="Web.config" />
     <Content Include="SetPrac.aspx" />
   </ItemGroup>
@@ -118,6 +119,13 @@
     </Compile>
     <Compile Include="SetPrac.aspx.designer.cs">
       <DependentUpon>SetPrac.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.aspx.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserInfo.aspx.designer.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

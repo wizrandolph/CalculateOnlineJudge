@@ -28,9 +28,8 @@ namespace COJServer_UIL
         }
         protected void Back2Menu_Click_PracSet(object sender, EventArgs e)
         {
-            //Response.Write("<script languge='javascript'>alert('成功改动');");
-            Server.Transfer("Menu.aspx");
-
+            string url = "Menu.aspx?user=" + UserName + "&id=" + UserId;
+            Response.Redirect(url);
         }
     }
 }

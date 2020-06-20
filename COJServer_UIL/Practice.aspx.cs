@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
-using System.Web;
+using System.Web.Services;
 using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -17,7 +17,7 @@ namespace COJServer_UIL
 {
     public partial class Practice : System.Web.UI.Page
     {
-        public string Username;
+        private string Username;
         private string UserId;
         private string Time;
         private string Type;
@@ -81,8 +81,8 @@ namespace COJServer_UIL
                 }
                 switch (Time)
                 {
-                    case "A": inttime = 5; break;
-                    case "B": inttime = 10; break;
+                    case "A": inttime = 300; break;
+                    case "B": inttime = 600; break;
                     case "C": inttime = 1800; break;
                     case "D": inttime = 3600; break;
                     default: inttime = 0; break;
@@ -93,27 +93,23 @@ namespace COJServer_UIL
                 {
                     ExerciseOR = ExerciseLogic.GetExercise(ExerciseOp);
                     Session["ExerciseORSession"] = ExerciseOR;
+                    Session["UsernameSession"] = Username;
+                    Session["UseridSession"] = UserId;
                     Debug.WriteLine("if");
-                    //Timer = new System.Timers.Timer(inttime);
                 }
                 else
                 {
                     ExerciseOR = (OperationResult<Exercise>)Session["ExerciseORSession"];
+                    Username = Session["UsernameSession"].ToString();
+                    UserId = Session["UseridSession"].ToString();
                     Debug.WriteLine("else");
                 }
-                    
-
-                
-                Label2.Text = Type;
-                Label1.Text = ExerciseOR.Prompt;
-
                 num = ExerciseOR.Result.ExerciseUnits.Length;
                 Debug.WriteLine("106");
 
                 for (int i = 0; i < num; i++)
                 {
                     HtmlGenericControl li = new HtmlGenericControl("li");
-                    li.InnerText = ExerciseOR.Result.ExerciseUnits[i].Topic;
 
                     TextBox t = new TextBox();
                     t.ID = "result" + i.ToString();
@@ -121,47 +117,40 @@ namespace COJServer_UIL
 
 
                     Label l = new Label();
-                    l.ID = "dynalabel" + i.ToString();
-                    l.Attributes["class"] = "exercisetext";
+                    l.Attributes["class"] = "label";
+                    l.Text = ExerciseOR.Result.ExerciseUnits[i].Topic;
 
+                    Label rw = new Label();
+                    rw.ID = "dynalabel" + i.ToString();
+                    rw.Attributes["class"] = "rwlabel";
+
+
+
+
+                    li.Controls.Add(l);
                     li.Controls.Add(t);
                     if (Type == "D")
                     {
                         TextBox trm = new TextBox();
                         trm.ID = "remainder" + i.ToString();
-                        trm.Attributes["class"] = "textbox";
+                        trm.Attributes["class"] = "rtextbox";
                         li.Controls.Add(trm);
                     }
-
-                    li.Controls.Add(l);
+                    li.Controls.Add(rw);
 
                     Exlist.Controls.Add(li);
-                    //Exlist.Controls.Add(t);
                     Debug.WriteLine("135");
                 }
-                /*
-                if (!IsPostBack)
-                {
-                    Timer.Interval = 1000;
-                    Timer.Elapsed += new System.Timers.ElapsedEventHandler(Time_Remainder);
-                    Timer.Enabled = true;
-                    Timer.AutoReset = true;
-                }
-                */
-
-                //CreateTextBoxList(num);
-                Debug.WriteLine("148");
 
             }
         }
         protected void Back2Menu_Click_Prac(object sender, EventArgs e)
         {
-            Server.Transfer("Menu.aspx");
+            string url = "Menu.aspx?user=" + Username + "&id=" + UserId;
+            Response.Redirect(url);
         }
-        protected void JsFunction()
-        {
-            Submit_Prac(jssender, jse);
-        }
+
+        
         protected void Submit_Prac(object sender, EventArgs e)
         {
             //if (!IsPostBack)
@@ -216,7 +205,7 @@ namespace COJServer_UIL
                 
 
                 //Label3.Text = judgeResult.Result.TotalNum.ToString();
-                Label4.Text = judgeResult.Result.ErrorNum.ToString();
+                Label4.Text = "共答对:"+(judgeResult.Result.TotalNum-judgeResult.Result.ErrorNum).ToString();
             }
             
         }
