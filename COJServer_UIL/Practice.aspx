@@ -6,11 +6,33 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>导航</title>
+    <script type="text/javascript">
+        //alert("js开启正常");
+        var i = <%=jstime%>;
+        window.onload = TimerFunct();
+        function TimerFunct() {
+            //document.getElementById("time").innerText = i.toString();
+            if (i >= 0) {
+                setTimeout("TimerFunct()", 1000);
+                var info = i.toString();
+                document.getElementById("time").innerText = i.toString();
+                i--;
+            }
+            else {
+                alert(i.toString());
+                <%JsFunction();%>
+            }
+        }
+        //var i = 5;
+        // 获取登录事件，并处理自动跳转
+        
+    </script>
     <style type ="text/css">
         body {
             background-image: url("./asset/images/login/loginbg.jpg");
             background-size: 100%;
             background-repeat: no-repeat;
+            background-color: #ffce34;
         }
         
         li {
@@ -65,6 +87,9 @@
             <p><asp:Label ID="Label4" runat="server" Text="运算类型"></asp:Label></p>
         </div>
     </form>
+        <div>
+            时间还剩<span id ="time"></span>秒
+        </div>
 
 </body>
 </html>

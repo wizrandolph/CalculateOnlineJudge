@@ -10,12 +10,14 @@ using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Timers;
+using System.Diagnostics;
 
 namespace COJServer_UIL
 {
     public partial class Practice : System.Web.UI.Page
     {
-        private string Username;
+        public string Username;
         private string UserId;
         private string Time;
         private string Type;
@@ -26,17 +28,20 @@ namespace COJServer_UIL
         private QuantityType QuantityTp;
         private int num;
         private OperationResult<Exercise> ExerciseOR;
+        public int jstime;
+        public object jssender;
+        public EventArgs jse;
+        //private System.Timers.Timer Timer;
 
-        protected class ExerOR {
-            
-        }
+        
         
         
 
         protected void Page_load(object sender, EventArgs e)
         {
+            jssender = sender;
+            jse = e;
 
-            
             {
 
 
@@ -46,6 +51,7 @@ namespace COJServer_UIL
                 Type = Request.QueryString["type"];
                 Quantity = Request.QueryString["quan"];
                 Interval = Request.QueryString["intvl"];
+                int inttime;
 
                 switch (Interval)
                 {
@@ -73,21 +79,36 @@ namespace COJServer_UIL
                     case "D": ExerciseOp = new ExerciseOption(IntervalTp, OperationType.DivWithRemainder, QuantityTp); break;
                     default: break;
                 }
+                switch (Time)
+                {
+                    case "A": inttime = 5; break;
+                    case "B": inttime = 10; break;
+                    case "C": inttime = 1800; break;
+                    case "D": inttime = 3600; break;
+                    default: inttime = 0; break;
+                }
+                jstime = inttime;
 
                 if (!IsPostBack)
                 {
                     ExerciseOR = ExerciseLogic.GetExercise(ExerciseOp);
                     Session["ExerciseORSession"] = ExerciseOR;
+                    Debug.WriteLine("if");
+                    //Timer = new System.Timers.Timer(inttime);
                 }
                 else
+                {
                     ExerciseOR = (OperationResult<Exercise>)Session["ExerciseORSession"];
+                    Debug.WriteLine("else");
+                }
+                    
 
-                //Label1.Text = ExerciseOR.Prompt;
+                
                 Label2.Text = Type;
                 Label1.Text = ExerciseOR.Prompt;
 
                 num = ExerciseOR.Result.ExerciseUnits.Length;
-
+                Debug.WriteLine("106");
 
                 for (int i = 0; i < num; i++)
                 {
@@ -116,33 +137,37 @@ namespace COJServer_UIL
 
                     Exlist.Controls.Add(li);
                     //Exlist.Controls.Add(t);
-
+                    Debug.WriteLine("135");
                 }
+                /*
+                if (!IsPostBack)
+                {
+                    Timer.Interval = 1000;
+                    Timer.Elapsed += new System.Timers.ElapsedEventHandler(Time_Remainder);
+                    Timer.Enabled = true;
+                    Timer.AutoReset = true;
+                }
+                */
 
                 //CreateTextBoxList(num);
-                
+                Debug.WriteLine("148");
 
             }
-            
-
-                //Debug Part
-                //Label1.Text = "题量"+Quantity;
-                //Label2.Text = "题型"+Type;
-                //Label3.Text = "范围"+Interval;
-
-
-            
         }
         protected void Back2Menu_Click_Prac(object sender, EventArgs e)
         {
             Server.Transfer("Menu.aspx");
+        }
+        protected void JsFunction()
+        {
+            Submit_Prac(jssender, jse);
         }
         protected void Submit_Prac(object sender, EventArgs e)
         {
             //if (!IsPostBack)
             {
 
-
+                Debug.WriteLine("Submit_Prac_Start");
                 TextBox txt;
                 //HtmlGenericControl p = new HtmlGenericControl("p");
 
@@ -188,14 +213,14 @@ namespace COJServer_UIL
                     jdglabel = exercise_frame.FindControl("dynalabel" + judgeResult.Result.ErrorExerciseIndex[i].ToString()) as Label;
                     jdglabel.Text = "×";
                 }
+                
 
-
-
-                Label3.Text = judgeResult.Result.TotalNum.ToString();
+                //Label3.Text = judgeResult.Result.TotalNum.ToString();
                 Label4.Text = judgeResult.Result.ErrorNum.ToString();
             }
             
         }
-       
+        
+
     }
 }

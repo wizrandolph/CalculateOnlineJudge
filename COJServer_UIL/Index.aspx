@@ -11,6 +11,7 @@
         background-image: url("./asset/images/login/loginbg.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
+        background-color: #ffce34;
     }
 
         #login_frame {
@@ -26,12 +27,6 @@
             border-radius: 10px;
             text-align: center;
         }
-
-        #button_frame {
-            position:absolute;
-            left:50%;
-            text-align:center;
-        }
  
 form p > * {
     display: inline-block;
@@ -42,23 +37,13 @@ form p {
     vertical-align: middle;
 }
  
-#image_logo {
-    margin-top: 22px;
-    width: 50%;
-    height: 50%;
-    left: 50%;
-    top: 50%
-}
- 
 .label_input {
     font-size: 14px;
     font-family: 宋体;
- 
     width:80px;
     height: 28px;
     line-height: 28px;
     text-align: center;
- 
     color: white;
     background-color: #FFA042;
     border-top-left-radius: 5px;
@@ -72,61 +57,43 @@ form p {
     border-bottom-right-radius: 5px;
     border: 0;
 }
-#content{
+#content{    
+    position: absolute;
+    width: 400px;
     height: 260px;
-}
- 
-#Button3_Index {
-    font-size: 14px;
-    font-family: 宋体;
- 
-    width: 120px;
-    height: 28px;
-    line-height: 28px;
-    text-align: center;
- 
-    color: white;
-    background-color: #FFA042;
-    border-radius: 6px;
-    border: 4px;
- 
-    float: left;
-}
+    margin:auto;
+            top: 50px;
+            left: 13px;
+        }
 #Button2_Index {
     font-size: 14px;
     font-family: 宋体;
- 
     width: 120px;
     height: 28px;
     line-height: 28px;
     text-align: center;
- 
     color: white;
     background-color: #FFA042;
     border-radius: 6px;
     border: 4px;
- 
-    float: left;
 }
- 
- 
-#forget_pwd:hover {
-    color: blue;
-    text-decoration: underline;
+#Button3_Index {
+    font-size: 14px;
+    font-family: 宋体;
+    width: 120px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    color: white;
+    background-color: #FFA042;
+    border-radius: 6px;
+    border: 4px;
 }
- 
-#login_control {
-    padding: 0 28px;
-}
-
-
 </style>
 </head>
 <body>
     
     <div id="login_frame">
-        
-       
         <form id="form1" runat="server" method="post">
         <div id ="content">
             <p>

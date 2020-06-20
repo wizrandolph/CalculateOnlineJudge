@@ -8,9 +8,10 @@
     <title>导航</title>
     <style type ="text/css">
     body {
-        background-image: url("./asset/images/login/loginBac.jpg");
+        background-image: url("./asset/images/login/loginbg.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
+        background-color: #ffce34;
     }
 
     </style>
