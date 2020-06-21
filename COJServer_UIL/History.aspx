@@ -17,6 +17,9 @@
         background-repeat: no-repeat;
         background-color: #ffce34;
     }
+    .label_input{
+        line-height:45px;
+    }
     #frame {
         width: 400px;
         height: 260px;
@@ -31,54 +34,82 @@
         text-align: center;
         }
     #l1 {
+        border-style: none;
+        border-color: inherit;
+        border-width: 4px;
         position: absolute;
-        width: 200px;
-        height:50px;
-        left:25%;
-        top: 50px;
+        width: 180px;
+        height:45px;
+        left:7%;
+        top: 22px;
         background-color: rgba(240, 255, 255, 0.5);
         border-radius: 6px;
-        border: 4px;
-    }
+        }
     #l2 {
+        border-style: none;
+        border-color: inherit;
+        border-width: 4px;
         position: absolute;
-        width: 200px;
-        height:50px;
-        left:25%;
-        top: 100px;
+        width: 180px;
+        height:45px;
+        left:7%;
+        top: 82px;
         background-color: rgba(240, 255, 255, 0.5);
         border-radius: 6px;
-        border: 4px;
-    }
+        }
     #l3 {
+        border-style: none;
+        border-color: inherit;
+        border-width: 4px;
         position: absolute;
-        width: 200px;
-        height:50px;
-        left:25%;
-        top: 150px;
+        width: 180px;
+        height:45px;
+        left:7%;
+        top: 142px;
         background-color: rgba(240, 255, 255, 0.5);
         border-radius: 6px;
-        border: 4px;
-    }
+        }
     #l4 {
+        border-style: none;
+        border-color: inherit;
+        border-width: 4px;
         position: absolute;
-        width: 200px;
-        height:50px;
-        left:25%;
-        top: 200px;
+        width: 180px;
+        height:45px;
+        left:7%;
+        top: 202px;
         background-color: rgba(240, 255, 255, 0.5);
         border-radius: 6px;
-        border: 4px;
-    }
+        }
     #l5 {
+        border-style: none;
+        border-color: inherit;
+        border-width: 4px;
         position: absolute;
-        width: 200px;
-        height:50px;
-        left:25%;
-        top: 250px;
+        width: 180px;
+        height:98px;
+        left:52%;
+        top: 26px;
         background-color: rgba(240, 255, 255, 0.5);
         border-radius: 6px;
-        border: 4px;
+        margin-top: 3px;
+    }
+    #Button2_History {
+    border-style: none;
+        border-color: inherit;
+        border-width: 4px;
+        font-size: 14px;
+        font-family: 宋体;
+        width: 180px;
+        height: 98px;
+        line-height: 28px;
+        text-align: center;
+        color: white;
+        background-color: #FFA042;
+        border-radius: 6px;
+        position: absolute;
+        top: 141px;
+        left: 221px;
     }
 </style>
 </head>
@@ -103,12 +134,8 @@
         <div id="l5">
             <asp:label runat="server" class="label_input" ID="Label5"></asp:label>
         </div>
-
+            <asp:Button ID="Button2_History" runat="server" OnClick="Back2Menu_History" Text="返回导航" />
         </div>
-
-            
-        
-        <asp:Button ID="Button2_History" runat="server" OnClick="Back2Menu_History" Text="返回导航" />
         <!--<asp:Label ID="Label1_History" runat="server" Text="Label"></asp:Label> -->
     </form>
         

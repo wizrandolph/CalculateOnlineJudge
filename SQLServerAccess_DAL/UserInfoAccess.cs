@@ -51,7 +51,7 @@ namespace CalculateOnlineJudge.SQLServerAccess_DAL
                         UPDATE  
                             dbo.userinformation_table 
                         SET 
-                            birth = {0} ,
+                            birth = N'{0}' ,
                             phone = N'{1}',
                             email = N'{2}'
                         WHERE 

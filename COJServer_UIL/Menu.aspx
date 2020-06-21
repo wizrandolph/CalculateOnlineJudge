@@ -47,23 +47,28 @@
         top: 70%;
     }
     #text_frame {
-        position: absolute;
-        width: 200px;
-        height:50px;
-        left:25%;
-        top: 50px;
-        background-color: rgba(240, 255, 255, 0.5);
-        border-radius: 6px;
-        border: 4px;
-    }
+        border-style: none;
+            border-color: inherit;
+            border-width: 4px;
+            position: absolute;
+            width: 300px;
+            height:50px;
+        left:15%;
+            top: 50px;
+            background-color: rgba(240, 255, 255, 0.5);
+            border-radius: 6px;
+        }
     #Label1_Menu {
         height: 50px;
-        width: 200px;
+        width: 300px;
         text-align: center;
         line-height: 50px;
         font-family: 'Microsoft YaHei';
         font-size: 18px;
-    }
+        position:absolute;
+            top: -2px;
+            left: 0px;
+        }
     #Button1_Menu {
         font-size: 14px;
         font-family: 微软雅黑;

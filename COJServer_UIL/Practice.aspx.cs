@@ -209,7 +209,8 @@ namespace COJServer_UIL
                 
 
                 //Label3.Text = judgeResult.Result.TotalNum.ToString();
-                Label4.Text = "共答对:"+(judgeResult.Result.TotalNum-judgeResult.Result.ErrorNum).ToString();
+                Label4.Text = "共答对: "+(judgeResult.Result.TotalNum-judgeResult.Result.ErrorNum).ToString()+"题";
+                Button1_Practice.Visible = false;
             }
             
         }

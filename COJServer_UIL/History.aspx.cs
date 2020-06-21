@@ -30,7 +30,7 @@ namespace COJServer_UIL
             Label2.Text = "错题数"+judgeInfo.QuestionErrorNum.ToString();
             Label3.Text = "正确率"+judgeInfo.CorrectRate.ToString();
             Label4.Text = "错误率"+judgeInfo.ErrorRate.ToString();
-            Label5.Text = "上次答题时间"+judgeInfo.LastestCompleteTime.ToString();
+            Label5.Text = "最后答题时间\n"+judgeInfo.LastestCompleteTime.ToString();
         }
 
         protected void Back2Menu_History(object sender, EventArgs e)

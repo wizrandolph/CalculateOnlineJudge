@@ -21,8 +21,8 @@ namespace CalculateOnlineJudge.Entity
 
         public int QuestionNum { get => questionNum; set => questionNum = value; }
         public int QuestionErrorNum { get => questionErrorNum; set => questionErrorNum = value; }
-        public float CorrectRate { get => questionNum == 0 ? 0f : 1f - questionErrorNum / questionNum; }
-        public float ErrorRate { get => questionNum == 0 ? 0f : questionErrorNum / questionNum; }
+        public float CorrectRate { get => questionNum == 0 ? 0f : 1f - (float)questionErrorNum / (float)questionNum; }
+        public float ErrorRate { get => questionNum == 0 ? 0f : (float)questionErrorNum / (float)questionNum; }
         public DateTime? LastestCompleteTime { get => lastestCompleteTime; set => lastestCompleteTime = value; }
     }
 }
