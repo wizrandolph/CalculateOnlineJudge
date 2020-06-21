@@ -26,6 +26,7 @@
         border-radius: 10px;
         text-align: center;
     }
+
     #Button2_Index {
     font-size: 14px;
     font-family: 宋体;
@@ -38,12 +39,30 @@
     border-radius: 6px;
     border: 4px;
 }
+    .label_input {
+    font-size: 14px;
+    font-family: 宋体;
+    width:120px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    color: white;
+    background-color: #FFA042;
+    border-radius: 5px;
+}
+    img {
+        width:48px;
+        height:48px;
+        border-radius:5px;
+        margin-top:50px;
+    }
+
 </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div id="frame">
-            <img src="./asset/image/npulogo.jpg">
+            <img src="./asset/images/npulogo.jpg"/>
             <p><asp:label runat="server" class="label_input">西北工业大学</asp:label></p>
             <asp:Button ID="Button2_Index" runat="server" OnClick="Back2Menu" Text="返回" />
         </div>
