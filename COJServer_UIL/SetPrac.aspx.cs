@@ -28,7 +28,7 @@ namespace COJServer_UIL
         }
         protected void Back2Menu_Click_PracSet(object sender, EventArgs e)
         {
-            string url = "Menu.aspx?user=" + UserName + "&id=" + UserId;
+            string url = "Menu.aspx?name=" + UserName + "&id=" + UserId;
             Response.Redirect(url);
         }
     }

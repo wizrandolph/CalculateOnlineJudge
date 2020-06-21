@@ -53,6 +53,11 @@ namespace COJServer_UIL
             Server.Transfer("Index.aspx");
 
         }
+        protected void AboutUs(object sender, EventArgs e)
+        {
+            string url = "AboutUs.aspx?username=" + UserName + "&id=" + UserId;
+            Response.Redirect(url);
+        }
         private void MessaegBox(string msg)
         {
             Page.ClientScript.RegisterClientScriptBlock(GetType(), "js", "<script>alert('" + msg + "');</script>");

@@ -101,8 +101,9 @@ namespace COJServer_UIL
                 {
                     ExerciseOR = (OperationResult<Exercise>)Session["ExerciseORSession"];
                     Username = Session["UsernameSession"].ToString();
+                    //Debug.WriteLine("writtename" + Username);
                     UserId = Session["UseridSession"].ToString();
-                    Debug.WriteLine("else");
+                    //Debug.WriteLine("else");
                 }
                 num = ExerciseOR.Result.ExerciseUnits.Length;
                 Debug.WriteLine("106");
@@ -146,8 +147,11 @@ namespace COJServer_UIL
         }
         protected void Back2Menu_Click_Prac(object sender, EventArgs e)
         {
-            string url = "Menu.aspx?user=" + Username + "&id=" + UserId;
+            Username = Session["UsernameSession"].ToString();
+            UserId = Session["UseridSession"].ToString();
+            string url = "Menu.aspx?name=" + Username + "&id=" + UserId;
             Response.Redirect(url);
+            Debug.WriteLine("name"+Username);
         }
 
         

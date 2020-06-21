@@ -152,7 +152,7 @@
                 <asp:Button ID="Button3_Menu" runat="server" OnClick="GetMyInfo" Text="我的信息" />
             </div>
             <div id="control_frame2">
-                <asp:Button ID="Button4_Menu" runat="server" OnClick="Go2History" Text="关于我们" />
+                <asp:Button ID="Button4_Menu" runat="server" OnClick="AboutUs" Text="关于我们" />
                 <asp:Button ID="Button5_Menu" runat="server" OnClick="DeleteAccount" Text="删除账号" />
                 <asp:Button ID="Button6_Menu" runat="server" OnClick="Logoff" Text="退出登录" />
             </div>

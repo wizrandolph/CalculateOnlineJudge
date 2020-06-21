@@ -55,6 +55,9 @@
             border-radius: 5px;
             border: 0;
         }
+        select option{
+            line-height:28px;
+        }
         #content {
             width: 400px;
             position: absolute;
