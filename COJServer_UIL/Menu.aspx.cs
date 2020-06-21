@@ -20,23 +20,41 @@ namespace COJServer_UIL
             UserId = Request.QueryString["id"];
             user = new CalculateOnlineJudge.Entity.User(Convert.ToInt32(UserId), UserName);
             Label1_Menu.Text = "当前用户： "+UserName;
+            Response.Expires = 0;
+            Response.Buffer = true;
+            Response.ExpiresAbsolute = DateTime.Now.AddSeconds(-1);
+            Response.AddHeader("pragma", "no-cache");
+            Response.CacheControl = "no-cache";
         }
 
         
         protected void Go2Practice(object sender, EventArgs e)
         {
-            string url = "SetPrac.aspx?username=" + UserName +"&id="+UserId;
-            Response.Redirect(url);
+                if (UserId != null && UserName != null)
+                {
+                    string url = "SetPrac.aspx?username=" + UserName + "&id=" + UserId;
+                    Response.Redirect(url);
+                }
+                else MessaegBox("当前未登录！请点击注销回到登陆界面");
         }
         protected void Go2History(object sender, EventArgs e)
         {
-            string url = "History.aspx?username=" + UserName + "&id=" + UserId;
-            Response.Redirect(url);
+                if (UserId != null && UserName != null)
+                {
+                string url = "History.aspx?username=" + UserName + "&id=" + UserId;
+                Response.Redirect(url);
+            }
+                else MessaegBox("当前未登录！请点击注销回到登陆界面");
+                
         }
         protected void GetMyInfo(object sender, EventArgs e)
         {
-            string url = "UserInfo.aspx?username=" + UserName + "&id=" + UserId;
-            Response.Redirect(url);
+            if (UserId != null && UserName != null)
+            {
+                string url = "UserInfo.aspx?username=" + UserName + "&id=" + UserId;
+                Response.Redirect(url);
+            }
+            else MessaegBox("当前未登录！请点击注销回到登陆界面");
         }
         protected void DeleteAccount(object sender, EventArgs e)
         {
@@ -44,14 +62,17 @@ namespace COJServer_UIL
             deleteOR = UserLogic.DeleteUser(user);
             MessaegBox(deleteOR.Prompt);
             System.Threading.Thread.Sleep(5000);
+            UserId = null;
+            UserName = null;
+            Label1_Menu.Text = "您已注销";
             Server.Transfer("Index.aspx");
         }
         protected void Logoff(object sender, EventArgs e)
         {
-            Context.Session.Clear();    //从会话状态集合中移除所有的键和值
-            Context.Session.Abandon();  //取消当前会话
+            UserId = null;
+            UserName = null;
+            Label1_Menu.Text = "您已注销";
             Server.Transfer("Index.aspx");
-
         }
         protected void AboutUs(object sender, EventArgs e)
         {
