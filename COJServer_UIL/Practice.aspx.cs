@@ -153,8 +153,12 @@ namespace COJServer_UIL
             Response.Redirect(url);
             Debug.WriteLine("name"+Username);
         }
+        private void MessaegBox(string msg)
+        {
+            Page.ClientScript.RegisterClientScriptBlock(GetType(), "js", "<script>alert('" + msg + "');</script>");
+        }
 
-        
+
         protected void Submit_Prac(object sender, EventArgs e)
         {
             //if (!IsPostBack)
@@ -192,24 +196,30 @@ namespace COJServer_UIL
                 }
                 CalculateOnlineJudge.Entity.User user = new CalculateOnlineJudge.Entity.User(Convert.ToInt32(UserId), Username);
                 var judgeResult = ExerciseLogic.JudgeExercise(ExerciseOR.Result, ExerciseResult, user);
-                Label2.Text = judgeResult.Prompt;
-
-                for (int i = 0; i < num; i++)
+                if(judgeResult.IsSuccess)
                 {
-                    Label jdglabel;
-                    jdglabel = exercise_frame.FindControl("dynalabel" + i.ToString()) as Label;
-                    jdglabel.Text = "√";
-                }
-                for (int i = 0; i < judgeResult.Result.ErrorExerciseIndex.Length; i++)
-                {
-                    Label jdglabel;
-                    jdglabel = exercise_frame.FindControl("dynalabel" + judgeResult.Result.ErrorExerciseIndex[i].ToString()) as Label;
-                    jdglabel.Text = "×";
-                }
-                
+                    Label2.Text = judgeResult.Prompt;
+                    for (int i = 0; i < num; i++)
+                    {
+                        Label jdglabel;
+                        jdglabel = exercise_frame.FindControl("dynalabel" + i.ToString()) as Label;
+                        jdglabel.Text = "√";
+                    }
+                    for (int i = 0; i < judgeResult.Result.ErrorExerciseIndex.Length; i++)
+                    {
+                        Label jdglabel;
+                        jdglabel = exercise_frame.FindControl("dynalabel" + judgeResult.Result.ErrorExerciseIndex[i].ToString()) as Label;
+                        jdglabel.Text = "×";
+                    }
 
-                //Label3.Text = judgeResult.Result.TotalNum.ToString();
-                Label4.Text = "共答对: "+(judgeResult.Result.TotalNum-judgeResult.Result.ErrorNum).ToString()+"题";
+
+                    //Label3.Text = judgeResult.Result.TotalNum.ToString();
+                    Label4.Text = "共答对: " + (judgeResult.Result.TotalNum - judgeResult.Result.ErrorNum).ToString() + "题";
+                }
+                else
+                {
+                    MessaegBox("结果异常异常");
+                }
                 Button1_Practice.Visible = false;
             }
             

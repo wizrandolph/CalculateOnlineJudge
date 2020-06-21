@@ -63,7 +63,7 @@
     <form id="form1" runat="server">
         <div id="frame">
             <p><img src="./asset/images/npulogo.jpg"/></p>
-            <p><asp:label runat="server" class="label_input">西北工业大学</asp:label></p>
+            <p><asp:label runat="server" class="label_input" Height="28px">西北工业大学</asp:label></p>
             <p><asp:Button ID="Button2_Index" runat="server" OnClick="Back2Menu" Text="返回" /></p>
         </div>
     </form>

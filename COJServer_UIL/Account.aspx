@@ -56,6 +56,7 @@ form p {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border: 0;
+    text-align:center;
 }
 #content{    
     position: absolute;

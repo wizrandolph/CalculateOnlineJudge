@@ -60,24 +60,6 @@ namespace COJServer_UIL
         protected global::System.Web.UI.WebControls.Button Button3_Menu;
 
         /// <summary>
-        /// Button4_Menu 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4_Menu;
-
-        /// <summary>
-        /// Button5_Menu 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button5_Menu;
-
-        /// <summary>
         /// Button6_Menu 控件。
         /// </summary>
         /// <remarks>
@@ -85,5 +67,14 @@ namespace COJServer_UIL
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button6_Menu;
+
+        /// <summary>
+        /// Button4_Menu 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button4_Menu;
     }
 }

@@ -7,7 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>导航</title>
     <script type="text/javascript">
-        //alert("js开启正常");
         var i = <%=jstime%>;
         window.onload = TimerFunct();
         var btn = document.getElementById("btn");
@@ -24,9 +23,6 @@
                 alert("你设定的时间已经到了！点击“提交”按钮查看成绩吧！");
             }
         }
-        
-        //var i = 5;
-        // 获取登录事件，并处理自动跳转
         
     </script>
     <style type ="text/css">
@@ -57,6 +53,7 @@
             border: 0;
             margin-top: 10px;
             margin-left: 10px;
+            text-align:center;
         }
         
         .textbox {
@@ -66,6 +63,7 @@
             border: 0;
             margin-top: 10px;
             margin-left: 10px;
+            text-align:center;
         }
         .rwlabel {
             color:red;
@@ -90,7 +88,9 @@
         #control_frame {
             position:relative;
             width:400px;
+            top:26%;
             text-align:center;
+            left: 0px;
         }
         #debug_frame {
             width: 400px;
@@ -102,6 +102,16 @@
             background-color: rgba(240, 255, 255, 0.5);
             border-radius: 10px;
             text-align: center;
+        }
+        #resultdiv {
+            position:relative;
+            top:23%;
+            left: 0px;
+        }
+        #timediv {
+            position:relative;
+            top:21%;
+            left: 0px;
         }
         #exercise_frame {
             width: 800px;
@@ -146,12 +156,13 @@
             <ul id ="Exlist" runat ="server" > </ul>      
         </div>
         <div id="debug_frame">
-            <div>
+            <div id="timediv">
                 时间还剩<span id ="time"></span>秒
             </div>
-            <p><asp:Label ID="Label2" runat="server" ></asp:Label></p>
-            <p><asp:Label ID="Label3" runat="server" ></asp:Label></p>
-            <p><asp:Label ID="Label4" runat="server" ></asp:Label></p>
+            <div id="resultdiv">
+                <p><asp:Label ID="Label2" runat="server" ></asp:Label></p>
+                <p><asp:Label ID="Label4" runat="server" ></asp:Label></p>
+            </div>
             <div id="control_frame">
                 <asp:Button ID="Button1_Practice" runat="server" OnClick="Submit_Prac" Text="提交试题" />
                 <asp:Button ID="Button2_Practice" runat="server" OnClick="Back2Menu_Click_Prac" Text="返回" />

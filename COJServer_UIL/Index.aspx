@@ -56,6 +56,7 @@ form p {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border: 0;
+    text-align:center;
 }
 #content{    
     position: absolute;
@@ -103,7 +104,7 @@ form p {
             </p>
             <p>
                 <asp:label runat="server" class="label_input">密码</asp:label>
-                <asp:TextBox ID="Password" class="text_field" runat="server" ></asp:TextBox>
+                <asp:TextBox ID="Password" class="text_field" runat="server" TextMode="Password"></asp:TextBox>
             </p>
             <p>
                 <asp:Button ID="Button2_Index" runat="server" OnClick="Button2_Click_Index" Text="登录" />

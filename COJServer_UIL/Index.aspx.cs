@@ -33,7 +33,7 @@ namespace COJServer_UIL
                 else
                     MessaegBox(userOR.Prompt);
             }
-            else MessaegBox("用户名或密码格式不正确！请重新输入");
+            else MessaegBox("用户名：或大写字母或小写字母或数字或中文，共6-20位\n密码：必须包含数字和小写字母和大写字母，共8-20位");
 
 
         }
